@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4378773-83BD-4552-B11C-0699756DEC26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>attributer</RootNamespace>
+    <AssemblyName>attributer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\mods\attributer\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Debug\attributer\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\mods\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Release\attributer\</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\Lib\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(AppData)\.vintagestory\VintagestoryAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(AppData)\.vintagestory\Mods\VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>$(AppData)\.vintagestory\Mods\VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSCreativeMod">
+      <HintPath>$(AppData)\.vintagestory\Mods\VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(AppData)\.vintagestory\Lib\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Core.cs" />
+    <Compile Include="src\patch\CollectibleObjectPatch.cs" />
+    <Compile Include="src\patch\ItemArrowPatch.cs" />
+    <Compile Include="src\patch\ItemBowPatch.cs" />
+    <Compile Include="src\patch\ItemIngotPatch.cs" />
+    <Compile Include="src\patch\ItemIronBloomPatch.cs" />
+    <Compile Include="src\patch\ItemMetalPlatePatch.cs" />
+    <Compile Include="src\patch\ItemPoulticePatch.cs" />
+    <Compile Include="src\patch\ItemShieldPatch.cs" />
+    <Compile Include="src\patch\ItemSlingPatch.cs" />
+    <Compile Include="src\patch\ItemSlotCharacterPatch.cs" />
+    <Compile Include="src\patch\ItemSpearPatch.cs" />
+    <Compile Include="src\patch\ItemWearablePatch.cs" />
+    <Compile Include="src\patch\ItemWorkItemPatch.cs" />
+    <Compile Include="src\patch\WearableStatsPatch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="modicon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="modinfo.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

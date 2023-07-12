@@ -1,0 +1,14 @@
+{
+  "type": "code",
+  "modid": "attributer",
+  "name": "Attributer",
+  "authors": [ "Yew™" ],
+  "description": "Allows individual item attributes to function.",
+  "side": "universal",
+  "version": "1.0.4",
+  "dependency": {
+    "game": "*",
+	"survival" : "*",
+  },
+  "website": "https://mods.vintagestory.at/attributer/"
+}
