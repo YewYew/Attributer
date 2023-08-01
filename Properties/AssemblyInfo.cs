@@ -36,7 +36,7 @@ using Vintagestory.API.Common;
 [assembly: AssemblyVersion("1.0.*")]
 
 [assembly: ModInfo("attributer", "attributer",
-    Version = "1.0.4",
+    Version = "1.0.5",
     Description = "Patch that makes attributes applied to items take priority over parent attributes.",
     Authors = new[] { "Yew™" }
     )]

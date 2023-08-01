@@ -76,8 +76,11 @@ namespace attributer.src
         [HarmonyPatch("GetMiningSpeed"), HarmonyPriority(Priority.Last)]
         public static void GetMiningSpeed(IItemStack itemstack, BlockSelection blockSel, Block block, IPlayer forPlayer, ref float __result, ref ICoreAPI ___api)
         {
+            //This is a check after all other checks, that looks for the miningspeed attribute.
             if (itemstack.Attributes.HasAttribute("miningspeed"))
             {
+                //Pretty much have to redo the whole function for this to work.
+                //I could do fancy math with the output, but nah.
                 float traitRate = 1f;
 
                 var mat = block.GetBlockMaterial(___api.World.BlockAccessor, blockSel.Position);
@@ -87,11 +90,13 @@ namespace attributer.src
                     traitRate = forPlayer.Entity.Stats.GetBlended("miningSpeedMul");
                 }
                 if (itemstack.Collectible.MiningSpeed == null || !itemstack.Collectible.MiningSpeed.ContainsKey(mat)) __result = traitRate;
-
-                float modifiedMiningSpeed = itemstack.Attributes.GetTreeAttribute("miningspeed").GetFloat(mat.ToString());
-                __result = modifiedMiningSpeed * GlobalConstants.ToolMiningSpeedModifier * traitRate;
+                //Additional sanity check seems to fix the "knife only works once bug".
+                if (itemstack.Attributes.GetTreeAttribute("miningspeed").HasAttribute(mat.ToString()))
+                {
+                    float modifiedMiningSpeed = itemstack.Attributes.GetTreeAttribute("miningspeed").GetFloat(mat.ToString());
+                    __result = modifiedMiningSpeed * GlobalConstants.ToolMiningSpeedModifier * traitRate;
+                }
             }
         }
-
     }
 }
