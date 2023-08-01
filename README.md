@@ -10,8 +10,7 @@ https://mods.vintagestory.at/attributer
 </ul>
 <p><strong>Incompatibilities:</strong></p>
 <ul>
-<li>Bullseye (Compatibility Planned).</li>
-<li>Other mods which significantly overwrite base item types.</li>
+<li>None?
 </ul>
 <p><strong>Mods requiring this:</strong></p>
 <ul>
